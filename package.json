@@ -9,7 +9,7 @@
   "main": "server.js",
   "scripts": {
     "dev": "nodemon server.js",
-    "start": "nodemon server.js"
+    "start": "node server.js"
   },
   "author": "Olujuwon Alabi",
   "license": "ISC",
