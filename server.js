@@ -1,7 +1,9 @@
 //Import/require dependencies
 //const http = require('http');
-const app = require('./App');
+//const app = require('./App');
+const express = require('express');
 
+const app = express();
 //create and specify port to use, wit option to use server variable
 const port = process.env.PORT || 9000;
 
@@ -9,7 +11,7 @@ const port = process.env.PORT || 9000;
 //const server = http.createServer(app);
 
 app.get('/', (req, res) => {
-    res.send('hello world');
+    res.send('hello world!');
 })
 //fireup server to listen on port
 app.listen(port);
