@@ -37,9 +37,7 @@ app.use(bodyParser.json());
         return res.status(200).json({});
     }
 })*/
-app.get('/', (req, res) => {
-   res.send('hello world!');
-})
+
 
 //connecting app to routes
 app.use('/menus', menusRoutes);
