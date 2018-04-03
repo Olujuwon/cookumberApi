@@ -40,34 +40,9 @@ app.use(bodyParser.json());
 app.get('/', (req, res) => {
    res.send('hello world!');
 })
-app.get('/menus', (req, res, next) => {
-	Menu.find()
-	.select('date day type name price')
-	.exec()
-	.then(menus => {
-		const response = {
-			count: menus.length,
-			menu: menus.map(menu => {
-				return{
-					_id:menu._id,
-					date:menu.date,
-					day:menu.day,
-					type:menu.type,
-					name:menu.name,
-					price:menu.price
-				}
-			}),
-			Methods: 'GET, DELETE, POST, PATCH'
-		}
-		res.status(200).json({menus:response})
-	})
-	.catch(error => {
-		res.status(500).json({error:error})
-	})
-});
 
 //connecting app to routes
-//app.use('/menus', menusRoutes);
+app.use('/menus', menusRoutes);
 app.use('/users', usersRoutes);
 app.use('/orders', ordersRoutes);
 
