@@ -4,10 +4,8 @@ const morgan = require('morgan'); //for logging to console
 const bodyParser = require('body-parser'); //for parsing data to and fro json
 const mongoose = require('mongoose'); // for connecting to MongoDB
 const Menu = require('./api/models/menus');
-
 //Configure app with express web framework
 const app = express();
-
 
 //implements all other routes
 const menusRoutes = require('./api/routes/menu');
@@ -15,13 +13,13 @@ const usersRoutes = require('./api/routes/users');
 const ordersRoutes = require('./api/routes/orders');
 
 //connect to mongoDB using mongoose
-mongoose.connect('mongodb://kitan:Olujuwon86~@kitan-shard-00-00-t4x8i.mongodb.net:27017,kitan-shard-00-01-t4x8i.mongodb.net:27017,kitan-shard-00-02-t4x8i.mongodb.net:27017/test?ssl=true&replicaSet=kitan-shard-0&authSource=admin', function() { /* dummy function */ })
+mongoose.connect('mongodb://kitan:'+ process.env.MONGO_ATLAS_PW+'@kitan-shard-00-00-t4x8i.mongodb.net:27017,kitan-shard-00-01-t4x8i.mongodb.net:27017,kitan-shard-00-02-t4x8i.mongodb.net:27017/test?ssl=true&replicaSet=kitan-shard-0&authSource=admin', function() { /* dummy function */ })
 .then(() => {
-    console.error('App started without errors');
+   console.error('App started without error');
 })
 .catch(err => { // mongoose connection error will be handled here
-    console.error('App starting error:', err.stack);
-    process.exit(1);
+console.error('App starting error:', err.stack);
+process.exit(1);
 });
 
 //mongoose.Promise = global.Promise; //solves mongoose promise deprecated issues
