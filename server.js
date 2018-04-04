@@ -49,7 +49,7 @@ const portTwo = process.env.PORT || 9001;
 
 //create and configure server with the API specified in app
 http.createServer(app).listen(portOne, () => console.log(`Server Listening on Port ${portOne}`));
-https.createServer(options, app).listen(portTwo, () => console.log(`Server Listening on Port ${portTwo}`));
+//https.createServer(options, app).listen(portTwo, () => console.log(`Server Listening on Port ${portTwo}`));
 
 
 //fireup server to listen on port & print message to console
