@@ -18,6 +18,8 @@ const options = {
     passphrase: '1234'
 };
 
+app.use(express.static(__dirname + '/view'));
+
 //declare routes
 const menusRoutes = require('./api/routes/menu');
 const usersRoutes = require('./api/routes/users');
@@ -44,7 +46,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
-   res.send('hello world!');
+   res.sendFile( 'index.html');
 })
 
 app.use('/menus', menusRoutes);
